@@ -98,7 +98,16 @@
     #sort-controls button:hover, #reset-filters-btn:hover {
       background: #444;
     }
+
+    /* --- Responsive & Compact for Tablets/Phones --- */
     @media (max-width: 700px) {
+      .tags {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      }
+      th, td {
+        font-size: 0.95em;
+        padding: 6px;
+      }
       table, thead, tbody, th, td, tr {
         display: block;
         width: 100%;
@@ -108,7 +117,7 @@
         display: none;
       }
       tr {
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         border-radius: 10px;
         background: #232323;
         box-shadow: 0 2px 8px rgba(0,0,0,0.09);
@@ -118,15 +127,15 @@
         border: none;
         border-bottom: 1px solid #333;
         position: relative;
-        padding-left: 48%;
-        min-height: 36px;
+        padding-left: 44%;
+        min-height: 32px;
         font-size: 1em;
         background: none;
       }
       td:before {
         position: absolute;
         left: 8px;
-        width: 44%;
+        width: 40%;
         white-space: nowrap;
         font-weight: bold;
         color: #8fd4ff;
@@ -141,6 +150,61 @@
         color: #e0e0e0;
         font-style: italic;
         border-bottom: none;
+      }
+      #sort-controls button, #reset-filters-btn {
+        padding: 5px 12px;
+        font-size: 0.85em;
+        margin-right: 6px;
+        margin-bottom: 6px;
+      }
+      #time {
+        font-size: 0.9em;
+      }
+    }
+
+    /* --- Ultra-Compact for Small Phones --- */
+    @media (max-width: 480px) {
+      body {
+        padding: 7px;
+      }
+      .tags {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        gap: 2px;
+        max-width: 100%;
+      }
+      .tag-toggle-btn {
+        padding: 1px 7px;
+        font-size: 0.7em;
+        border-radius: 8px;
+        margin: 1px 2px 1px 0;
+      }
+      th, td {
+        font-size: 0.8em;
+        padding: 4px;
+      }
+      td {
+        padding-left: 38%;
+        min-height: 24px;
+      }
+      td:before {
+        font-size: 0.75em;
+        width: 32%;
+        left: 4px;
+      }
+      tr {
+        margin-bottom: 7px;
+      }
+      #sort-controls button, #reset-filters-btn {
+        padding: 4px 7px;
+        font-size: 0.75em;
+        margin-right: 4px;
+        margin-bottom: 4px;
+      }
+      #time {
+        font-size: 0.8em;
+      }
+      h1, h2 {
+        font-size: 1.1em;
       }
     }
   </style>
