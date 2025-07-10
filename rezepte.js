@@ -225,10 +225,12 @@ function renderOverview(filteredRecipeIds = null) {
     const row = document.createElement('tr');
     row.id = "row-" + r.id;
     row.className = "overview-row";
-    row.innerHTML = `<td class="rezeptname-cell" style="cursor:pointer; color:#8fd4ff; text-decoration:underline;">${r.name}</td>
-      <td>${r.time} Min</td>
-      <td>${r.ingredients.join(', ')}</td>
-      <td>${r.tags.join(', ')}</td>`;
+    row.innerHTML = `
+      <td class="rezeptname-cell" data-label="Rezeptname" style="cursor:pointer; color:#8fd4ff; text-decoration:underline;">${r.name}</td>
+      <td data-label="Zeit">${r.time} Min</td>
+      <td data-label="Zutaten">${r.ingredients.join(', ')}</td>
+      <td data-label="Tags">${r.tags.join(', ')}</td>
+    `;
     overview.appendChild(row);
 
     row.querySelector('.rezeptname-cell').onclick = function(e) {
@@ -253,6 +255,7 @@ function toggleInstructionRow(recipeId, instruction, rowElement) {
   instrRow.id = 'instruction-row-' + recipeId;
   const td = document.createElement('td');
   td.colSpan = 4;
+  td.setAttribute('data-label', 'Anleitung');
   td.innerHTML = `<b>Anleitung:</b> ${instruction}`;
   instrRow.appendChild(td);
   rowElement.parentNode.insertBefore(instrRow, rowElement.nextSibling);
